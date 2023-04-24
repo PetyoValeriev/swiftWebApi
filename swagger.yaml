@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Swift Message API
+  version: 1.0.0
+  description: RESTful API for processing and storing Swift messages
+servers:
+  - url: http://localhost:3000/
+paths:
+  /messages:
+    post:
+      summary: Upload a new Swift message
+      operationId: uploadMessage
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    get:
+      summary: Get all Swift messages
+      operationId: getAllMessages
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+    delete:
+      summary: Delete a Swift message by ID
+      operationId: deleteMessage
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the message to delete
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string

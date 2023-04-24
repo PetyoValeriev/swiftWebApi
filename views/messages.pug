@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title Swift API - Messages
+    link(rel="stylesheet", href="/views/styles.css")
+  body
+    h1 Messages
+    table
+      thead
+        tr
+          th ID
+          th Message
+          th Created At
+          th Action
+      tbody
+        each message in messages
+          tr(id=`message-${message.id}`)
+            td= message.id
+            td= message.message
+            td= message.created_at
+            td
+              button(onclick=`deleteMessage(${message.id})`) Delete
+        form(action="/messages", method="post", enctype="multipart/form-data")
+            input(type="file", name="file")
+            button(type="submit") Upload      
+    script.
+      function deleteMessage(id) {
+        fetch(`/messages/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then((response) => {
+          if (response.ok) {
+            // Remove the message row from the table
+            const messageRow = document.getElementById(`message-${id}`);
+            messageRow.parentNode.removeChild(messageRow);
+          } else {
+            throw new Error('Failed to delete message');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Failed to delete message');
+        });
+        //TO DO MODIFY BUTTON
+      }
+        
