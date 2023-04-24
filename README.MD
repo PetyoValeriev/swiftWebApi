@@ -9,7 +9,7 @@ DELETE /messages/:id - Delete a message with the specified ID
 Installation
 Clone the repository: git clone https://github.com/PetyoValeriev/swiftWebApi.git
 Install dependencies: npm install
-Set up a MySQL database and update the config.js file with your database credentials
+Set up a MySQL database and update the .env file with your database credentials
 Start the server: npm start
 
 Create a .env file in the root directory of the project and add the following variables:
