@@ -1,69 +1,79 @@
 body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-  }
-  
-  th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f8f8f8;
-  }
-  
-  button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #d32f2f;
-  }
-  
-  .button-index {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .button-index:hover {
-    background-color: #0056b3;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+main {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+button,
+.button-index {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button {
+  background-color: #f44336;
+  margin: 4px 2px;
+}
+
+button:hover {
+  background-color: #d32f2f;
+}
+
+.button-index {
+  background-color: #007bff;
+  margin: 0;
+}
+
+.button-index:hover {
+  background-color: #0056b3;
+}
