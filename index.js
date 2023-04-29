@@ -35,7 +35,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//method override
+//method override for delete
 app.use(methodOverride('_method'));
 
 //setting up a middleware to serve and display the API documentation generated from the Swagger document.
