@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
-  title: Swift Message API
+  title: Swift API
   version: 1.0.0
-  description: RESTful API for processing and storing Swift messages
+  description: API for accepting and storing MT799 messages
 servers:
   - url: http://localhost:3000/
 paths:
   /messages:
     post:
-      summary: Upload a new Swift message
+      summary: Upload a new MT799 message file
       operationId: uploadMessage
       requestBody:
         required: true
@@ -22,7 +22,7 @@ paths:
                   format: binary
       responses:
         '201':
-          description: Created
+          description: MT799 message uploaded and saved successfully
           content:
             application/json:
               schema:
@@ -30,8 +30,9 @@ paths:
                 properties:
                   id:
                     type: integer
+                    description: ID of the saved message
         '400':
-          description: Bad request
+          description: Bad Request, file not provided
           content:
             application/json:
               schema:
@@ -40,7 +41,7 @@ paths:
                   error:
                     type: string
         '500':
-          description: Internal server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
@@ -49,41 +50,29 @@ paths:
                   error:
                     type: string
     get:
-      summary: Get all Swift messages
-      operationId: getAllMessages
+      summary: Retrieve a list of all MT799 messages
+      operationId: getMessages
       responses:
         '200':
-          description: OK
+          description: A list of MT799 messages
           content:
             text/html:
               schema:
                 type: string
     delete:
-      summary: Delete a Swift message by ID
+      summary: Delete a specific MT799 message by ID
       operationId: deleteMessage
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the message to delete
+        - in: path
+          name: id
           schema:
             type: integer
+          required: true
+          description: ID of the MT799 message to delete
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+          description: MT799 message deleted successfully
+        '404':
+          description: MT799 message not found
         '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
+          description: Internal Server Error

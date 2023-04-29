@@ -49,3 +49,21 @@ body {
     background-color: #d32f2f;
   }
   
+  .button-index {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-index:hover {
+    background-color: #0056b3;
+  }
+  
