@@ -1,15 +1,12 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
-const methodOverride = require('method-override');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
 const path = require('path');
 const logger = require('./logger');
-require('dotenv').config();
-
-
 const messageRoutes = require('./routes/messagesRoutes.js');
+require('dotenv').config();
 
 const app = express();
 
@@ -25,18 +22,12 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Add this line to import the pool from db.js:
-const { pool } = require('./db');
-
 //files upload
 app.use(fileUpload());
 app.use((req, res, next) => {
     // console.log(req.method, req.url);
     next();
 });
-
-//method override for delete
-app.use(methodOverride('_method'));
 
 //setting up a middleware to serve and display the API documentation generated from the Swagger document.
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
