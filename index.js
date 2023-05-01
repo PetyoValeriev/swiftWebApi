@@ -3,7 +3,6 @@ const fileUpload = require('express-fileupload');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
-const path = require('path');
 const logger = require('./logger');
 require('dotenv').config();
 const messageRoutes = require('./routes/messagesRoutes.js');
