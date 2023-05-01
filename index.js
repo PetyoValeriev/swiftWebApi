@@ -10,9 +10,6 @@ const messageRoutes = require('./routes/messagesRoutes.js');
 
 const app = express();
 
-// define the path to the views directory
-app.set('views', path.join(__dirname, 'views'));
-
 //set the view engine to Pug
 app.set('view engine', 'pug');
 app.use('/views', express.static('views'));
